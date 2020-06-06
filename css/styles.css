@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #ffcd3c;
+}
+
+.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  grid-template-rows: 80px 1fr;
+  grid-template-areas:
+    "header header"
+    "nav main";
+}
+
+header {
+  grid-area: header;
+  background-color: #ff9234;
+  display: flex;
+}
+
+header h1 {
+  flex-grow: 1;
+}
+
+header img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+nav {
+  grid-area: nav;
+  background-color: #35d0ba;
+}
+
+main {
+  grid-area: main;
+  background-color: #d92027;
+}
