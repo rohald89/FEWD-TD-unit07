@@ -10,21 +10,75 @@
     <div class="wrapper">
       <header>
         <h1>YourApp</h1>
-        <!-- <img src="icons/icon-bell.svg" alt="notification bell" /> -->
+        <div class="bell">
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 32 32"
+            style="enable-background: new 0 0 32 32;"
+            xml:space="preserve"
+          >
+            <style type="text/css">
+              .st0 {
+                fill: #000000;
+              }
+            </style>
+            <g id="bell-icon">
+              <g>
+                <path
+                  class="bell-icon"
+                  d="M24,18v-8c0-5.5-4.5-10-10-10S4,4.5,4,10v8l-4,8h9.1c0.5,2.3,2.5,4,4.9,4s4.4-1.7,4.9-4H28L24,18z M14,28
+			c-1.3,0-2.4-0.8-2.8-2h5.6C16.4,27.2,15.3,28,14,28z M3,24l3-6v-8c0-4.4,3.6-8,8-8s8,3.6,8,8v8l3,6H3z"
+                />
+              </g>
+            </g>
+          </svg>
+          <div id="notifications"></div>
+        </div>
         <img src="images/member-1.jpg" alt="profile picture" />
-        <p>John Sullivan</p>
+        <h3>John Sullivan</h3>
       </header>
       <nav>
-        <ol>
-          <li>Dashboard</li>
-          <li>User</li>
-          <li>Charts</li>
-          <li>Settings</li>
-        </ol>
+        <a href="#"
+          ><img src="icons/icon-dashboard.svg" alt="dashboard icon"
+        /></a>
+        <a href="#"><img src="icons/icon-members.svg" alt="members icon" /></a>
+        <a href="#"><img src="icons/icon-visits.svg" alt="visits icon" /></a>
+        <a href="#"
+          ><img src="icons/icon-settings.svg" alt="settings icon"
+        /></a>
       </nav>
       <main>
-        <section class="traffic"></section>
-        <section class="dailyTraffic"></section>
+        <div class="main-header">
+          <h2 class="headline">dashboard</h2>
+          <div class="search">
+            <input type="search" placeholder="Search..." />
+          </div>
+        </div>
+        <div class="alert"></div>
+        <section class="traffic">
+          <div class="traffic-header">
+            <h3>Traffic</h3>
+            <ul>
+              <li>Hourly</li>
+              <li>Daily</li>
+              <li>Weekly</li>
+              <li>Monthly</li>
+            </ul>
+          </div>
+          <div class="chart-container">
+            <canvas id="traffic-chart"></canvas>
+          </div>
+        </section>
+        <section class="dailyTraffic">
+          <div class="daily">
+            <canvas id="daily-chart"></canvas>
+          </div>
+        </section>
         <section class="mobileUsers"></section>
         <section class="socialStats"></section>
         <section class="newMembers"></section>
