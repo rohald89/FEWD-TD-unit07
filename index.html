@@ -54,37 +54,84 @@
       </nav>
       <main>
         <div class="main-header">
-          <h2 class="headline">dashboard</h2>
+          <h2 class="headline">Dashboard</h2>
           <div class="search">
             <input type="search" placeholder="Search..." />
           </div>
         </div>
-        <div class="alert"></div>
+        <div class="alert" id="alert">
+          <!-- JS will insert alert here -->
+        </div>
         <section class="traffic">
           <div class="traffic-header">
             <h3>Traffic</h3>
             <ul>
-              <li>Hourly</li>
-              <li>Daily</li>
-              <li>Weekly</li>
-              <li>Monthly</li>
+              <li class="traffic-nav-link">Hourly</li>
+              <li class="traffic-nav-link">Daily</li>
+              <li class="traffic-nav-link active">Weekly</li>
+              <li class="traffic-nav-link">Monthly</li>
             </ul>
           </div>
           <div class="chart-container">
+            <h3>traffic-chart</h3>
+            <!-- element line graph will attach to -->
             <canvas id="traffic-chart"></canvas>
           </div>
         </section>
-        <section class="dailyTraffic">
-          <div class="daily">
-            <canvas id="daily-chart"></canvas>
+        <div class="half-size">
+          <section class="daily">
+            <h3>Daily Traffic</h3>
+            <div class="chart-container-half">
+              <!-- element bar graph will attach to -->
+              <canvas id="dialy-chart"></canvas>
+            </div>
+          </section>
+          <section class="mobile-users">
+            <h3>Mobile Users</h3>
+            <div class="chart-container-half">
+              <!-- element donut chart will attach to -->
+              <canvas id="mobile-chart"></canvas>
+            </div>
+          </section>
+        </div>
+
+        <section class="socials">
+          <div class="social">
+            <div class="social-img">
+              SVG HERE
+            </div>
+            <div class="social-stats">
+              <p>Twitter</p>
+              <p>10,345</p>
+            </div>
+          </div>
+          <div class="social">
+            <div class="social-img">
+              SVG HERE
+            </div>
+            <div class="social-stats">
+              <p>Facebook</p>
+              <p>10,345</p>
+            </div>
+          </div>
+          <div class="social">
+            <div class="social-img">
+              SVG HERE
+            </div>
+            <div class="social-stats">
+              <p>Google+</p>
+              <p>10,345</p>
+            </div>
           </div>
         </section>
-        <section class="mobileUsers"></section>
-        <section class="socialStats"></section>
-        <section class="newMembers"></section>
-        <section class="recentActivity"></section>
-        <section class="messageUser"></section>
-        <section class="Settings"></section>
+        <div class="half-size">
+          <section class="newMembers half-size">newMembers</section>
+          <section class="recentActivity half-size">recentActivity</section>
+        </div>
+        <div class="half-size">
+          <section class="messageUser half-size">messageUser</section>
+          <section class="Settings half-size">Settings</section>
+        </div>
       </main>
     </div>
     <script

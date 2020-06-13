@@ -58,20 +58,33 @@ nav a img {
 main {
   grid-area: main;
   background-color: #f4f6ff;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-.main-header
-  .alert
-  .traffic
-  .dailyTraffic
-  .mobileUsers
-  .socialStats
-  .newMembers
-  .recentActivity
-  .messageUser
-  .Settings
-  @media
-  (min-width: 768px) {
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 20px;
+  background-color: aqua;
+}
+.traffic-header ul {
+  display: flex;
+  list-style: none;
+}
+.traffic-header ul li {
+  margin: 5px;
+
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+.active {
+  color: white;
+  background: green;
+}
+
+@media (min-width: 768px) {
   .wrapper {
     grid-template-rows: 80px 65px 1fr;
   }
@@ -85,8 +98,25 @@ main {
       "header header"
       "nav main";
   }
+
   nav {
     flex-direction: column;
     justify-content: flex-start;
+  }
+  .traffic-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .half-size {
+    display: flex;
+  }
+  .half-size section {
+    flex-basis: 50%;
+    border: 3px solid green;
+  }
+  .socials,
+  .social {
+    display: flex;
+    justify-content: space-between;
   }
 }
