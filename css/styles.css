@@ -67,7 +67,6 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 11px 20px;
-  background-color: aqua;
 }
 .traffic-header ul {
   display: flex;
@@ -106,10 +105,32 @@ form > textarea {
   margin: 10px 0;
   height: 100px;
 }
+.social {
+  display: flex;
+  background-color: #ddd;
+  padding: 15px 30px;
+  margin: 15px;
+  border: 1px solid grey;
+}
+.social-img {
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  fill: white;
+  background: #127681;
+  border-radius: 50%;
+}
 
 @media (min-width: 768px) {
   .wrapper {
     grid-template-rows: 80px 65px 1fr;
+  }
+  .socials {
+    display: flex;
+    justify-content: space-between;
+  }
+  .social {
+    flex-grow: 1;
   }
 }
 
@@ -135,11 +156,6 @@ form > textarea {
   }
   .half-size section {
     flex-basis: 50%;
-    border: 3px solid green;
-  }
-  .socials,
-  .social {
-    display: flex;
-    justify-content: space-between;
+    border: 1px solid grey;
   }
 }
