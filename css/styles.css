@@ -58,15 +58,16 @@ nav a img {
 main {
   grid-area: main;
   background-color: #f4f6ff;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 .main-header {
   display: flex;
+  margin-bottom: 15px;
   justify-content: space-between;
   align-items: center;
-  padding: 11px 20px;
 }
 .traffic-header ul {
   display: flex;
@@ -80,13 +81,13 @@ main {
 }
 .active {
   color: white;
-  background: green;
+  background: #127681;
 }
 .member {
   display: flex;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #10375c;
 }
 .member img {
   border-radius: 50%;
@@ -107,10 +108,10 @@ form > textarea {
 }
 .social {
   display: flex;
-  background-color: #ddd;
+  background-color: #e5e9f8;
   padding: 15px 30px;
   margin: 15px;
-  border: 1px solid grey;
+  border: 1px solid #10375c;
 }
 .social-img {
   height: 50px;
@@ -119,6 +120,26 @@ form > textarea {
   fill: white;
   background: #127681;
   border-radius: 50%;
+}
+
+.alert {
+  margin: 15px auto;
+  padding: 15px;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  background: #f3c623;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+.alert p,
+.alert strong {
+  color: #127681;
+  font-size: 1.2rem;
+}
+.close-banner {
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -156,6 +177,6 @@ form > textarea {
   }
   .half-size section {
     flex-basis: 50%;
-    border: 1px solid grey;
+    border: 1px solid #10375c;
   }
 }
