@@ -83,6 +83,29 @@ main {
   color: white;
   background: green;
 }
+.member {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid grey;
+}
+.member img {
+  border-radius: 50%;
+  height: 50px;
+  margin: 10px;
+}
+.member-info {
+  flex-grow: 1;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+form > textarea {
+  margin: 10px 0;
+  height: 100px;
+}
 
 @media (min-width: 768px) {
   .wrapper {
