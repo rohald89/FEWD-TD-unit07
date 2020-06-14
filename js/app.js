@@ -42,7 +42,7 @@ let trafficData = {
   datasets: [
     {
       data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
-      backgroundColor: "rgba(18,119, 129, .4",
+      backgroundColor: "rgba(18,119, 129, .4)",
       borderWidth: 1,
     },
   ],
@@ -50,9 +50,6 @@ let trafficData = {
 
 let trafficOptions = {
   aspectRatio: 2.5,
-  animation: {
-    duration: 0,
-  },
   scales: {
     yAxes: [
       {
@@ -72,3 +69,67 @@ let trafficChart = new Chart(trafficCanvas, {
   data: trafficData,
   options: trafficOptions,
 });
+
+//==========================
+//====== Daily Chart =======
+//==========================
+
+const dailyCanvas = document.getElementById("daily-chart");
+
+let dailyChart = new Chart(dailyCanvas, {
+  type: "bar",
+  data: {
+    labels: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    datasets: [
+      {
+        label: "# of Hits",
+        data: [75, 115, 175, 125, 225, 200, 100],
+        backgroundColor: "rgba(18,119, 129, .4)",
+        borderWidth: 1,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+    legend: {
+      display: false,
+    },
+  },
+});
+// let dailyChart = new Chart(dailyCanvas, {
+//   type: "bar",
+//   data: {
+//     labels: [
+//       "Monday",
+//       "Tuesday",
+//       "Wednesday",
+//       "Thursday",
+//       "Friday",
+//       "Saturday",
+//       "Sunday",
+//     ],
+//     dataSets: [
+//       {
+//         data: [75, 115, 175, 125, 225, 200, 100],
+//         backgroundColor: "rgba(18,119, 129, .4)",
+//         borderWidth: 1,
+//       },
+//     ],
+//   },
+// });
