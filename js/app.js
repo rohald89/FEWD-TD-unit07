@@ -153,18 +153,38 @@ let mobileChart = new Chart(mobileCanvas, {
 //== TODO - Meet Expectations ==
 //==============================
 
+// NOTIFICATION IN HEADER
 // Include an alert icon in the header with a marker to notify the user of new alerts and messages
+// Add a CSS transition or animation to the bell icon when the user hovers over it
 
-// Add a CSS transition or animation to the bell icon when the user hovers over instanceof
+// NEW MEMBERS SECTION
+// Add join date for each member on
+
+// RECENT ACTIVITY SECTION
+// Add time since activity for each member
+
+// MESSAGE USER SECTION
+// Send button uses JS to allow a user to submit the form
+//  - Display confirmation the message was sent
+//  - Display error message if both or either the user or message field is empty
+
+// SETTINGS WIDGET
+// on/off widget for whether to send email notifications
+// on/off widget for whether to set profile to public or private
 
 //==============================
 //= TODO - Exceed Expectations =
 //==============================
 
+// NOTIFICATIONS IN HEADER
 // Display at least 2 notifications alerts icon gets clicked (pop-up window or dropdown menu)
 
-// Traffic chart widget:
+// TRAFFIC CHART WIDGET:
+//  - Includes navigation allowing to switch between hourly, daily, weekly and monthlly chart
+//  - Hourly, daily, weekly and monthly buttons display a different line chart on click.
 
-//   Includes navigation allowing to switch between hourly, daily, weekly and monthlly chart
+// MESSAGE USER WIDGET
+// Displays working autocomplete search input field that lets the user search for members
 
-//   Hourly, daily, weekly and monthly buttons display a different line chart on click.
+// SETTINGS WIDGET
+// Local storage is used to save the setting. When page is reloaded the settings are remembered
