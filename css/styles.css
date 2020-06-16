@@ -4,7 +4,9 @@
   box-sizing: border-box;
   color: #10375c;
 }
-
+body {
+  font-family: "Roboto", sans-serif;
+}
 .wrapper {
   min-height: 100vh;
   display: grid;
@@ -58,37 +60,56 @@ nav a img {
 main {
   grid-area: main;
   background-color: #f4f6ff;
-  padding: 20px;
+  /* padding: 20px; */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 .main-header {
   display: flex;
-  margin-bottom: 15px;
+  margin: 15px;
   justify-content: space-between;
   align-items: center;
 }
+
+h3 {
+  margin: 20px 0 0 20px;
+}
+.full-size,
+.half-size {
+  border-top: 1px solid #127681;
+}
+
+.chart-container {
+  margin: 25px;
+}
+
 .traffic-header ul {
   display: flex;
   list-style: none;
+  margin-right: 30px;
 }
 .traffic-header ul li {
-  margin: 5px;
-
-  border-radius: 15px;
-  padding: 5px 10px;
+  margin: 15px;
 }
 .active {
   color: white;
+  border-radius: 15px;
+  padding: 5px 10px;
   background: #127681;
 }
 .member {
   display: flex;
   align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #10375c;
+  width: 90%;
+  margin: auto;
+  border-bottom: 1px solid rgba(18, 118, 129, 0.3);
 }
+
+.member:last-child {
+  border: none;
+}
+
 .member img {
   border-radius: 50%;
   height: 50px;
@@ -108,24 +129,35 @@ form > textarea {
 }
 .social {
   display: flex;
+  align-items: center;
   background-color: #e5e9f8;
-  padding: 15px 30px;
-  margin: 15px;
-  border: 1px solid #10375c;
+  margin: 20px 20px 40px 20px;
+  box-shadow: 0 0 5px 1px rgba(18, 118, 129, 0.8);
+  border-radius: 5px;
 }
 .social-img {
   height: 50px;
   width: 50px;
+  margin: 20px;
   padding: 10px;
   fill: white;
   background: #127681;
   border-radius: 50%;
 }
+.social-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #127681;
+}
+
+.social-numbers {
+  font-size: 2rem;
+}
 
 .alert {
   margin: 15px auto;
   padding: 15px;
-  width: 100%;
+  width: 95%;
   border-radius: 5px;
   display: flex;
   background: #f3c623;
@@ -172,11 +204,14 @@ form > textarea {
     display: flex;
     justify-content: space-between;
   }
+
   .half-size {
     display: flex;
   }
   .half-size section {
     flex-basis: 50%;
-    border: 1px solid #10375c;
+  }
+  .half-size section:first-child {
+    border-right: 1px solid #127681;
   }
 }
