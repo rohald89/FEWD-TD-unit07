@@ -30,10 +30,47 @@ header h1 {
   flex-grow: 1;
 }
 
-.bell {
-  height: 36px;
-  width: 35px;
-  margin: 15px;
+#bell {
+  height: 32px;
+  width: 32px;
+  margin: 20px;
+}
+#bell svg:not(:root) {
+  overflow: visible;
+}
+.bell-icon {
+  transform-origin: 50% 0%;
+  fill: #10375c;
+}
+#bell:hover .bell-icon {
+  animation: swing 1.5s ease-out;
+}
+
+#notifications {
+  display: none;
+  position: absolute;
+  top: 80px;
+  right: 5%;
+  width: 250px;
+}
+
+#notifications li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f3c623;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 5px 10px 2px #d1aa1f;
+  border-radius: 5px;
+  list-style: none;
+}
+
+#notifications li span {
+  margin: 10px;
+}
+#notifications li span:hover {
+  cursor: pointer;
 }
 
 header img {
@@ -60,7 +97,6 @@ nav a img {
 main {
   grid-area: main;
   background-color: #f4f6ff;
-  /* padding: 20px; */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -101,6 +137,7 @@ h3 {
 .member {
   display: flex;
   align-items: center;
+
   width: 90%;
   margin: auto;
   border-bottom: 1px solid rgba(18, 118, 129, 0.3);
@@ -108,6 +145,11 @@ h3 {
 
 .member:last-child {
   border: none;
+}
+
+.member p,
+.member a {
+  font-size: 0.8rem;
 }
 
 .member img {
@@ -174,6 +216,82 @@ form > textarea {
   cursor: pointer;
 }
 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #127681;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #f4f6ff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #f3c623;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #f4f6ff;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(46px);
+  -ms-transform: translate(46px);
+  transform: translate(46px);
+}
+
+/* KEYFRAMES */
+
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(15deg);
+  }
+  60% {
+    transform: rotate(-15deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 @media (min-width: 768px) {
   .wrapper {
     grid-template-rows: 80px 65px 1fr;
@@ -185,8 +303,10 @@ form > textarea {
   .social {
     flex-grow: 1;
   }
+  #notifications {
+    width: 350px;
+  }
 }
-
 @media (min-width: 1024px) {
   .wrapper {
     grid-template-columns: 80px 1fr;

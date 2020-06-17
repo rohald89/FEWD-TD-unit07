@@ -1,4 +1,26 @@
 //==========================
+//=== Bell Notifications ===
+//==========================
+
+const bell = document.getElementById("bell");
+const notifications = document.getElementById("notifications");
+const closeNotification = document.getElementsByClassName("close");
+
+// Show notifications on bell click
+bell.addEventListener("click", () => {
+  notifications.style.display = "block";
+});
+
+// close notification when the X is clicked
+for (let i = 0; i < closeNotification.length; i++) {
+  closeNotification[i].addEventListener("click", (e) => {
+    if (e.target.tagName === "SPAN") {
+      e.target.parentNode.remove();
+    }
+  });
+}
+
+//==========================
 //======= Alert banner =====
 //==========================
 
@@ -155,13 +177,6 @@ let mobileChart = new Chart(mobileCanvas, {
 
 // NOTIFICATION IN HEADER
 // Include an alert icon in the header with a marker to notify the user of new alerts and messages
-// Add a CSS transition or animation to the bell icon when the user hovers over it
-
-// NEW MEMBERS SECTION
-// Add join date for each member on
-
-// RECENT ACTIVITY SECTION
-// Add time since activity for each member
 
 // MESSAGE USER SECTION
 // Send button uses JS to allow a user to submit the form
@@ -175,9 +190,6 @@ let mobileChart = new Chart(mobileCanvas, {
 //==============================
 //= TODO - Exceed Expectations =
 //==============================
-
-// NOTIFICATIONS IN HEADER
-// Display at least 2 notifications alerts icon gets clicked (pop-up window or dropdown menu)
 
 // TRAFFIC CHART WIDGET:
 //  - Includes navigation allowing to switch between hourly, daily, weekly and monthlly chart

@@ -14,37 +14,41 @@
     <div class="wrapper">
       <header>
         <h1>YourApp</h1>
-        <div class="bell">
+        <div id="bell">
           <svg
             version="1.1"
-            id="Layer_1"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
             viewBox="0 0 32 32"
-            style="enable-background: new 0 0 32 32;"
-            xml:space="preserve"
           >
-            <style type="text/css">
-              .st0 {
-                fill: #000000;
-              }
-            </style>
-            <g id="bell-icon">
-              <g>
-                <path
-                  class="bell-icon"
-                  d="M24,18v-8c0-5.5-4.5-10-10-10S4,4.5,4,10v8l-4,8h9.1c0.5,2.3,2.5,4,4.9,4s4.4-1.7,4.9-4H28L24,18z M14,28
+            <path
+              class="bell-icon"
+              d="M24,18v-8c0-5.5-4.5-10-10-10S4,4.5,4,10v8l-4,8h9.1c0.5,2.3,2.5,4,4.9,4s4.4-1.7,4.9-4H28L24,18z M14,28
 			c-1.3,0-2.4-0.8-2.8-2h5.6C16.4,27.2,15.3,28,14,28z M3,24l3-6v-8c0-4.4,3.6-8,8-8s8,3.6,8,8v8l3,6H3z"
-                />
-              </g>
-            </g>
+            />
           </svg>
-          <div id="notifications"></div>
+          <div id="notification"></div>
         </div>
         <img src="images/member-1.jpg" alt="profile picture" />
         <h4>John Sullivan</h4>
+        <ul id="notifications">
+          <li>
+            <p>Notification 1</p>
+            <span class="close">x</span>
+          </li>
+          <li>
+            <p>Notification 2</p>
+            <span class="close">x</span>
+          </li>
+          <li>
+            <p>Notification 3</p>
+            <span class="close">x</span>
+          </li>
+          <li>
+            <p>Notification 4</p>
+            <span class="close">x</span>
+          </li>
+        </ul>
       </header>
       <nav>
         <a href="#"
@@ -207,6 +211,7 @@
                 <p>Member Name 1</p>
                 <a href="#">member_1@email.com</a>
               </div>
+              <p>10/15/15</p>
             </div>
             <div class="member">
               <img src="images/member-2.jpg" alt="" />
@@ -214,6 +219,7 @@
                 <p>Member Name 2</p>
                 <a href="#">member_2@email.com</a>
               </div>
+              <p>10/15/15</p>
             </div>
             <div class="member">
               <img src="images/member-3.jpg" alt="" />
@@ -221,6 +227,7 @@
                 <p>Member Name 3</p>
                 <a href="#">member_3@email.com</a>
               </div>
+              <p>10/15/15</p>
             </div>
             <div class="member">
               <img src="images/member-4.jpg" alt="" />
@@ -228,6 +235,7 @@
                 <p>Member Name 4</p>
                 <a href="#">member_4@email.com</a>
               </div>
+              <p>10/15/15</p>
             </div>
           </section>
           <section class="recentActivity">
@@ -236,33 +244,33 @@
               <img src="images/member-1.jpg" alt="" />
               <div class="member-info">
                 <p>Member commented on</p>
-                <p>date posted</p>
+                <p>4 hours ago</p>
               </div>
-              <div class="arrow">></div>
+              <span class="arrow">></span>
             </div>
             <div class="member">
               <img src="images/member-2.jpg" alt="" />
               <div class="member-info">
                 <p>Member commented on</p>
-                <p>date posted</p>
+                <p>5 hours ago</p>
               </div>
-              <div class="arrow">></div>
+              <span class="arrow">></span>
             </div>
             <div class="member">
               <img src="images/member-3.jpg" alt="" />
               <div class="member-info">
                 <p>Member commented on</p>
-                <p>date posted</p>
+                <p>5 hours ago</p>
               </div>
-              <div class="arrow">></div>
+              <span class="arrow">></span>
             </div>
             <div class="member">
               <img src="images/member-4.jpg" alt="" />
               <div class="member-info">
                 <p>Member commented on</p>
-                <p>date posted</p>
+                <p>14 hours ago</p>
               </div>
-              <div class="arrow">></div>
+              <span class="arrow">></span>
             </div>
           </section>
         </div>
@@ -288,82 +296,96 @@
             <!-- Custom CSS toggle code -->
 
             <!-- Custom CSS toggle code -->
-            <select class="form-field" id="timezone">
-              <option disabled selected>Select a Timezone</option>
+            <form>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label>
+              <!-- <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label> -->
+              <select class="form-field" id="timezone">
+                <option disabled selected>Select a Timezone</option>
 
-              <!-- took a code snippet for the following options from
+                <!-- took a code snippet for the following options from
 https://gist.github.com/jonathanforsythe/1065260 -->
-              <option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>
-              <option value="-11.0">(GMT -11:00) Midway Island, Samoa</option>
-              <option value="-10.0">(GMT -10:00) Hawaii</option>
-              <option value="-9.0">(GMT -9:00) Alaska</option>
-              <option value="-8.0"
-                >(GMT -8:00) Pacific Time (US &amp; Canada)</option
-              >
-              <option value="-7.0"
-                >(GMT -7:00) Mountain Time (US &amp; Canada)</option
-              >
-              <option value="-6.0"
-                >(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option
-              >
-              <option value="-5.0"
-                >(GMT -5:00) Eastern Time (US &amp; Canada), Bogota,
-                Lima</option
-              >
-              <option value="-4.0"
-                >(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option
-              >
-              <option value="-3.5">(GMT -3:30) Newfoundland</option>
-              <option value="-3.0"
-                >(GMT -3:00) Brazil, Buenos Aires, Georgetown</option
-              >
-              <option value="-2.0">(GMT -2:00) Mid-Atlantic</option>
-              <option value="-1.0"
-                >(GMT -1:00 hour) Azores, Cape Verde Islands</option
-              >
-              <option value="0.0"
-                >(GMT) Western Europe Time, London, Lisbon, Casablanca</option
-              >
-              <option value="1.0"
-                >(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option
-              >
-              <option value="2.0">(GMT +2:00) Kaliningrad, South Africa</option>
-              <option value="3.0"
-                >(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option
-              >
-              <option value="3.5">(GMT +3:30) Tehran</option>
-              <option value="4.0"
-                >(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option
-              >
-              <option value="4.5">(GMT +4:30) Kabul</option>
-              <option value="5.0"
-                >(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option
-              >
-              <option value="5.5"
-                >(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option
-              >
-              <option value="5.75">(GMT +5:45) Kathmandu</option>
-              <option value="6.0">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-              <option value="7.0">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-              <option value="8.0"
-                >(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option
-              >
-              <option value="9.0"
-                >(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option
-              >
-              <option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
-              <option value="10.0"
-                >(GMT +10:00) Eastern Australia, Guam, Vladivostok</option
-              >
-              <option value="11.0"
-                >(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option
-              >
-              <option value="12.0"
-                >(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option
-              >
-            </select>
-            <button class="primary-btn" id="save">Save</button>
-            <button class="disabled-btn" id="cancel">Cancel</button>
+                <option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>
+                <option value="-11.0">(GMT -11:00) Midway Island, Samoa</option>
+                <option value="-10.0">(GMT -10:00) Hawaii</option>
+                <option value="-9.0">(GMT -9:00) Alaska</option>
+                <option value="-8.0"
+                  >(GMT -8:00) Pacific Time (US &amp; Canada)</option
+                >
+                <option value="-7.0"
+                  >(GMT -7:00) Mountain Time (US &amp; Canada)</option
+                >
+                <option value="-6.0"
+                  >(GMT -6:00) Central Time (US &amp; Canada), Mexico
+                  City</option
+                >
+                <option value="-5.0"
+                  >(GMT -5:00) Eastern Time (US &amp; Canada), Bogota,
+                  Lima</option
+                >
+                <option value="-4.0"
+                  >(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option
+                >
+                <option value="-3.5">(GMT -3:30) Newfoundland</option>
+                <option value="-3.0"
+                  >(GMT -3:00) Brazil, Buenos Aires, Georgetown</option
+                >
+                <option value="-2.0">(GMT -2:00) Mid-Atlantic</option>
+                <option value="-1.0"
+                  >(GMT -1:00 hour) Azores, Cape Verde Islands</option
+                >
+                <option value="0.0"
+                  >(GMT) Western Europe Time, London, Lisbon, Casablanca</option
+                >
+                <option value="1.0"
+                  >(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option
+                >
+                <option value="2.0"
+                  >(GMT +2:00) Kaliningrad, South Africa</option
+                >
+                <option value="3.0"
+                  >(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option
+                >
+                <option value="3.5">(GMT +3:30) Tehran</option>
+                <option value="4.0"
+                  >(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option
+                >
+                <option value="4.5">(GMT +4:30) Kabul</option>
+                <option value="5.0"
+                  >(GMT +5:00) Ekaterinburg, Islamabad, Karachi,
+                  Tashkent</option
+                >
+                <option value="5.5"
+                  >(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option
+                >
+                <option value="5.75">(GMT +5:45) Kathmandu</option>
+                <option value="6.0">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+                <option value="7.0">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+                <option value="8.0"
+                  >(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option
+                >
+                <option value="9.0"
+                  >(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option
+                >
+                <option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
+                <option value="10.0"
+                  >(GMT +10:00) Eastern Australia, Guam, Vladivostok</option
+                >
+                <option value="11.0"
+                  >(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option
+                >
+                <option value="12.0"
+                  >(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option
+                >
+              </select>
+              <button class="primary-btn" id="save">Save</button>
+              <button class="disabled-btn" id="cancel">Cancel</button>
+            </form>
           </section>
         </div>
       </main>
