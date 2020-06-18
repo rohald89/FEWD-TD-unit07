@@ -221,4 +221,4 @@ messageForm.addEventListener("submit", (event) => {
 // Displays working autocomplete search input field that lets the user search for members
 
 // SETTINGS WIDGET
-// Local storage is used to save the setting. When page is reloaded the settings are remembered
+// Localstorage is used to save the setting. When page is reloaded the settings are remembered
