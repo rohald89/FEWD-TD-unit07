@@ -6,9 +6,13 @@ const bell = document.getElementById("bell");
 const notifications = document.getElementById("notifications");
 const closeNotification = document.getElementsByClassName("close");
 
-// Show notifications on bell click
+// Show / Hide notifications on bell click
 bell.addEventListener("click", () => {
-  notifications.style.display = "block";
+  if (notifications.style.display === "none") {
+    notifications.style.display = "block";
+  } else {
+    notifications.style.display = "none";
+  }
 });
 
 // close notification when the X is clicked
@@ -172,20 +176,37 @@ let mobileChart = new Chart(mobileCanvas, {
 });
 
 //==============================
+//======= Message widget =======
+//==============================
+
+const messageForm = document.getElementById("message");
+const userSearch = document.getElementById("user-search");
+const messageForUser = document.getElementById("message-for-user");
+const messageButton = document.getElementById("send-message");
+
+const submitted = document.createElement("P");
+
+messageForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  messageForm.onsubmit = () => {
+    if (userSearch.value === "" || messageForUser.value === "") {
+      submitted.textContent =
+        "One or more fields are empty, make sure to fill in everything!";
+      messageForm.insertBefore(submitted, messageButton);
+    } else {
+      submitted.textContent = `Your message has been send to ${userSearch.value}!`;
+      messageForm.insertBefore(submitted, messageButton);
+      messageForm.reset();
+    }
+  };
+});
+
+//==============================
 //== TODO - Meet Expectations ==
 //==============================
 
 // NOTIFICATION IN HEADER
 // Include an alert icon in the header with a marker to notify the user of new alerts and messages
-
-// MESSAGE USER SECTION
-// Send button uses JS to allow a user to submit the form
-//  - Display confirmation the message was sent
-//  - Display error message if both or either the user or message field is empty
-
-// SETTINGS WIDGET
-// on/off widget for whether to send email notifications
-// on/off widget for whether to set profile to public or private
 
 //==============================
 //= TODO - Exceed Expectations =
