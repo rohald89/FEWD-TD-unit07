@@ -35,6 +35,9 @@ header h1 {
   width: 32px;
   margin: 20px;
 }
+#bell:hover {
+  cursor: pointer;
+}
 #bell svg:not(:root) {
   overflow: visible;
 }
@@ -44,6 +47,16 @@ header h1 {
 }
 #bell:hover .bell-icon {
   animation: swing 1.5s ease-out;
+}
+
+#notification {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  top: 13px;
+  transform: translateX(25px);
 }
 
 #notifications {
@@ -137,14 +150,12 @@ h3 {
 .member {
   display: flex;
   align-items: center;
-
   width: 90%;
   margin: auto;
-  border-bottom: 1px solid rgba(18, 118, 129, 0.3);
 }
 
-.member:last-child {
-  border: none;
+.member + .member {
+  border-top: 1px solid rgba(18, 118, 129, 0.3);
 }
 
 .member p,

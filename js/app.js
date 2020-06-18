@@ -1,11 +1,11 @@
 //==========================
-//=== Bell Notifications ===
+//===== Notifications ======
 //==========================
 
 const bell = document.getElementById("bell");
 const notifications = document.getElementById("notifications");
 const closeNotification = document.getElementsByClassName("close");
-
+const notificationDot = document.getElementById("notification");
 // Show / Hide notifications on bell click
 bell.addEventListener("click", () => {
   if (notifications.style.display === "none") {
@@ -20,6 +20,10 @@ for (let i = 0; i < closeNotification.length; i++) {
   closeNotification[i].addEventListener("click", (e) => {
     if (e.target.tagName === "SPAN") {
       e.target.parentNode.remove();
+      // hide the dot when notifications ul has no more child elements
+      if (notifications.children.length < 1) {
+        notificationDot.style.display = "none";
+      }
     }
   });
 }
@@ -194,7 +198,7 @@ messageForm.addEventListener("submit", (event) => {
         "One or more fields are empty, make sure to fill in everything!";
       messageForm.insertBefore(submitted, messageButton);
     } else {
-      submitted.textContent = `Your message has been send to ${userSearch.value}!`;
+      submitted.textContent = `Your message to ${userSearch.value} has been send!`;
       messageForm.insertBefore(submitted, messageButton);
       messageForm.reset();
     }
@@ -204,9 +208,6 @@ messageForm.addEventListener("submit", (event) => {
 //==============================
 //== TODO - Meet Expectations ==
 //==============================
-
-// NOTIFICATION IN HEADER
-// Include an alert icon in the header with a marker to notify the user of new alerts and messages
 
 //==============================
 //= TODO - Exceed Expectations =
