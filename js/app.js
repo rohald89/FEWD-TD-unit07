@@ -41,8 +41,7 @@ banner.innerHTML = `
 `;
 
 banner.addEventListener("click", (e) => {
-  const close = e.target;
-  if (close.classList.contains("close-banner")) {
+  if (e.target.classList.contains("close-banner")) {
     setTimeout(() => {
       banner.style.display = "none";
     }, 300);
@@ -61,42 +60,6 @@ Chart.defaults.global.defaultFontColor = "#10375C";
 //==========================
 //====== Traffic Chart =====
 //==========================
-
-const TimeFrames = {
-  hourly: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
-  daily: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
-  weekly: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
-  monthly: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
-};
-// const activeTimeFrame = document
-//   .querySelector(".active")
-//   .textContent.toLowerCase();
-let keys = Object.keys(TimeFrames);
-console.log(keys[0]);
-
-let dailyCharts = keys[3];
-console.log(dailyCharts);
-
-// console.log(activeTimeFrame);
-
-// function dataTime() {
-//   const activeTimeFrame = document
-//     .querySelector(".active")
-//     .textContent.toLowerCase();
-//   let keys = Object.keys(TimeFrames);
-//   let timeFrame = [];
-
-//   for (let i = 0; i < TimeFrames.length; i++) {
-//     if (activeTimeFrame == keys[i]) {
-//       let time = keys[i];
-//       console.log(time);
-//       return time;
-//     }
-//   }
-//   return console.log(time);
-// }
-// dataTime();
-
 const trafficCanvas = document.getElementById("traffic-chart");
 
 let trafficData = new Chart(trafficCanvas, {
@@ -117,7 +80,7 @@ let trafficData = new Chart(trafficCanvas, {
     ],
     datasets: [
       {
-        data: TimeFrames.weekly,
+        data: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
         backgroundColor: "rgba(18,118,128,.4)",
       },
     ],
@@ -140,6 +103,122 @@ let trafficData = new Chart(trafficCanvas, {
 //==========================
 //== Traffic Chart Switch ==
 //==========================
+
+//   hourly: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1000],
+//   daily: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
+//   weekly: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
+//   monthly: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
+
+function activeTimeLine() {
+  const active = document.getElementsByClassName("active");
+  for (let i = 0; i < active.length; i++) {
+    active[i].classList = "";
+    console.log(active[i]);
+  }
+}
+
+const hourly = document.getElementById("hourly");
+hourly.addEventListener("click", () => {
+  activeTimeLine();
+  hourly.classList = "active";
+  trafficData.data.datasets[0].data = [5, 6, 5, 7, 9, 1, 3, 4, 8, 5];
+  trafficData.data.labels = [
+    "9:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+  ];
+  trafficData.update();
+});
+
+const daily = document.getElementById("daily");
+daily.addEventListener("click", () => {
+  activeTimeLine();
+  daily.classList = "active";
+  trafficData.data.datasets[0].data = [60, 47, 65, 70, 61, 83, 57];
+  trafficData.data.labels = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  trafficData.update();
+});
+
+const weekly = document.getElementById("weekly");
+weekly.addEventListener("click", () => {
+  activeTimeLine();
+  weekly.classList = "active";
+  trafficData.data.datasets[0].data = [
+    250,
+    750,
+    500,
+    1150,
+    1000,
+    1250,
+    750,
+    1350,
+    900,
+    1200,
+    1000,
+  ];
+  trafficData.data.labels = [
+    "16-22",
+    "23-29",
+    "30-5",
+    "6-12",
+    "13-19",
+    "20-26",
+    "27-3",
+    "4-10",
+    "11-17",
+    "18-24",
+    "25-31",
+  ];
+  trafficData.update();
+});
+
+const monthly = document.getElementById("monthly");
+monthly.addEventListener("click", () => {
+  activeTimeLine();
+  monthly.classList = "active";
+  trafficData.data.datasets[0].data = [
+    2000,
+    1200,
+    3950,
+    2950,
+    5600,
+    4050,
+    1950,
+    4450,
+    4850,
+    4900,
+    6100,
+  ];
+  trafficData.data.labels = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "October",
+    "November",
+    "December",
+  ];
+  trafficData.update();
+});
 
 //==========================
 //====== Daily Chart =======
@@ -301,18 +380,22 @@ const timezone = document.getElementById("timezone");
 
 console.log(localStorage.getItem("profilePublic"));
 
+// check to see if there is a key with mailNotifications inside localStorage
+// if there is and the value is "true" check the slider. otherwise uncheck it
 const mailStorage = localStorage.getItem("mailNotifications");
 if (mailStorage && mailStorage === "true") {
   emailNotifications.checked = true;
 } else {
   emailNotifications.checked = false;
 }
+
 const profileStorage = localStorage.getItem("profilePublic");
 if (profileStorage && profileStorage === "true") {
   profilePublic.checked = true;
 } else {
   profilePublic.checked = false;
 }
+
 timezone.value = localStorage.getItem("timezone");
 
 save.addEventListener("click", () => {
@@ -340,5 +423,34 @@ cancel.addEventListener("click", () => {
 //  - Includes navigation allowing to switch between hourly, daily, weekly and monthlly chart
 //  - Hourly, daily, weekly and monthly buttons display a different line chart on click.
 
-// SETTINGS WIDGET
-// Localstorage is used to save the setting. When page is reloaded the settings are remembered
+// const TimeFrames = {
+
+// };
+// // const activeTimeFrame = document
+// //   .querySelector(".active")
+// //   .textContent.toLowerCase();
+// let keys = Object.keys(TimeFrames);
+// console.log(keys[3]);
+
+// let dailyCharts = keys[3];
+// console.log(dailyCharts);
+
+// console.log(activeTimeFrame);
+
+// function dataTime() {
+//   const activeTimeFrame = document
+//     .querySelector(".active")
+//     .textContent.toLowerCase();
+//   let keys = Object.keys(TimeFrames);
+//   let timeFrame = [];
+
+//   for (let i = 0; i < TimeFrames.length; i++) {
+//     if (activeTimeFrame == keys[i]) {
+//       let time = keys[i];
+//       console.log(time);
+//       return time;
+//     }
+//   }
+//   return console.log(time);
+// }
+// dataTime();

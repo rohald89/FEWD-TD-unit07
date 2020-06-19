@@ -235,10 +235,15 @@ select {
   outline: none;
 }
 
+form {
+  position: relative;
+}
 .suggestions {
   background-color: #ced1dd;
   border-radius: 6px;
-  position: relative;
+  position: absolute;
+  transform: translateY(45px);
+  width: 100%;
 }
 
 .suggestions div {
