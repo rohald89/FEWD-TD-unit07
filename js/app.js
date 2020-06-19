@@ -289,6 +289,46 @@ userSearch.addEventListener("keyup", () => {
 });
 
 //==============================
+//======= Local Storage ========
+//==============================
+
+const save = document.getElementById("save");
+const cancel = document.getElementById("cancel");
+
+const emailNotifications = document.getElementById("email-notifications");
+const profilePublic = document.getElementById("profile-public");
+const timezone = document.getElementById("timezone");
+
+console.log(localStorage.getItem("profilePublic"));
+
+const mailStorage = localStorage.getItem("mailNotifications");
+if (mailStorage && mailStorage === "true") {
+  emailNotifications.checked = true;
+} else {
+  emailNotifications.checked = false;
+}
+const profileStorage = localStorage.getItem("profilePublic");
+if (profileStorage && profileStorage === "true") {
+  profilePublic.checked = true;
+} else {
+  profilePublic.checked = false;
+}
+timezone.value = localStorage.getItem("timezone");
+
+save.addEventListener("click", () => {
+  event.preventDefault();
+  console.log("save button clicked");
+  localStorage.setItem("mailNotifications", emailNotifications.checked);
+  localStorage.setItem("profilePublic", profilePublic.checked);
+  localStorage.setItem("timezone", timezone.value);
+});
+
+cancel.addEventListener("click", () => {
+  event.preventDefault();
+  localStorage.clear();
+});
+
+//==============================
 //== TODO - Meet Expectations ==
 //==============================
 
