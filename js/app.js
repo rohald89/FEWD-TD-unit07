@@ -6,6 +6,7 @@ const bell = document.getElementById("bell");
 const notifications = document.getElementById("notifications");
 const closeNotification = document.getElementsByClassName("close");
 const notificationDot = document.getElementById("notification");
+
 // Show / Hide notifications on bell click
 bell.addEventListener("click", () => {
   if (notifications.style.display === "none") {
@@ -61,6 +62,41 @@ Chart.defaults.global.defaultFontColor = "#10375C";
 //====== Traffic Chart =====
 //==========================
 
+const TimeFrames = {
+  hourly: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
+  daily: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
+  weekly: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
+  monthly: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
+};
+// const activeTimeFrame = document
+//   .querySelector(".active")
+//   .textContent.toLowerCase();
+let keys = Object.keys(TimeFrames);
+console.log(keys[0]);
+
+let dailyCharts = keys[3];
+console.log(dailyCharts);
+
+// console.log(activeTimeFrame);
+
+// function dataTime() {
+//   const activeTimeFrame = document
+//     .querySelector(".active")
+//     .textContent.toLowerCase();
+//   let keys = Object.keys(TimeFrames);
+//   let timeFrame = [];
+
+//   for (let i = 0; i < TimeFrames.length; i++) {
+//     if (activeTimeFrame == keys[i]) {
+//       let time = keys[i];
+//       console.log(time);
+//       return time;
+//     }
+//   }
+//   return console.log(time);
+// }
+// dataTime();
+
 const trafficCanvas = document.getElementById("traffic-chart");
 
 let trafficData = new Chart(trafficCanvas, {
@@ -81,7 +117,7 @@ let trafficData = new Chart(trafficCanvas, {
     ],
     datasets: [
       {
-        data: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
+        data: TimeFrames.weekly,
         backgroundColor: "rgba(18,118,128,.4)",
       },
     ],
@@ -100,6 +136,10 @@ let trafficData = new Chart(trafficCanvas, {
     },
   },
 });
+
+//==========================
+//== Traffic Chart Switch ==
+//==========================
 
 //==========================
 //====== Daily Chart =======
@@ -193,16 +233,59 @@ const submitted = document.createElement("P");
 messageForm.addEventListener("submit", (event) => {
   event.preventDefault();
   messageForm.onsubmit = () => {
-    if (userSearch.value === "" || messageForUser.value === "") {
+    if (userSearch.value === "" && messageForUser.value !== "") {
       submitted.textContent =
-        "One or more fields are empty, make sure to fill in everything!";
+        "It looks like the name of the person you want to send a message is missing, please fill in a user name and try again";
       messageForm.insertBefore(submitted, messageButton);
+    } else if (userSearch.value !== "" && messageForUser.value === "") {
+      submitted.textContent = `Please type enter a message you want to send to ${userSearch.value}`;
     } else {
       submitted.textContent = `Your message to ${userSearch.value} has been send!`;
       messageForm.insertBefore(submitted, messageButton);
       messageForm.reset();
     }
   };
+});
+
+//==============================
+//===== Autocomplete Search ====
+//==============================
+
+const members = [
+  { name: "Victoria Chambers" },
+  { name: "Dale Byrd" },
+  { name: "Dawn Wood" },
+  { name: "Dan Oliver" },
+];
+
+const suggestionsDiv = document.querySelector(".suggestions");
+
+userSearch.addEventListener("keyup", () => {
+  let input = userSearch.value;
+  const suggestion = document.getElementsByClassName("suggestion");
+  suggestionsDiv.innerHTML = "";
+
+  const suggestions = members.filter(function (member) {
+    return member.name.toLowerCase().startsWith(input);
+  });
+
+  suggestions.forEach(function (suggested) {
+    const div = document.createElement("div");
+    div.innerHTML = suggested.name;
+    div.classList = "suggestion";
+    suggestionsDiv.appendChild(div);
+  });
+  if (input === "") {
+    suggestionsDiv.innerHTML = "";
+  }
+
+  for (let i = 0; i < suggestion.length; i++) {
+    suggestion[i].addEventListener("click", (e) => {
+      const chosenSuggestion = e.target.textContent;
+      userSearch.value = chosenSuggestion;
+      suggestionsDiv.innerHTML = "";
+    });
+  }
 });
 
 //==============================
@@ -216,9 +299,6 @@ messageForm.addEventListener("submit", (event) => {
 // TRAFFIC CHART WIDGET:
 //  - Includes navigation allowing to switch between hourly, daily, weekly and monthlly chart
 //  - Hourly, daily, weekly and monthly buttons display a different line chart on click.
-
-// MESSAGE USER WIDGET
-// Displays working autocomplete search input field that lets the user search for members
 
 // SETTINGS WIDGET
 // Localstorage is used to save the setting. When page is reloaded the settings are remembered

@@ -227,6 +227,36 @@ form > textarea {
   cursor: pointer;
 }
 
+input,
+textarea,
+select {
+  padding: 10px;
+  border-radius: 6px;
+  outline: none;
+}
+
+.suggestions {
+  background-color: #ced1dd;
+  border-radius: 6px;
+  position: relative;
+}
+
+.suggestions div {
+  border-top: 1px solid #e5e9f8;
+  padding: 6px;
+  margin: 2px;
+  cursor: pointer;
+}
+.suggestions div:hover {
+  background-color: #e5e9f8;
+}
+
+/* 
+==============================
+==== Autocomplete Search =====
+============================== 
+*/
+
 form {
   display: flex;
   flex-direction: column;
