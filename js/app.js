@@ -104,11 +104,6 @@ let trafficData = new Chart(trafficCanvas, {
 //== Traffic Chart Switch ==
 //==========================
 
-//   hourly: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1000],
-//   daily: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
-//   weekly: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
-//   monthly: [250, 750, 500, 1150, 1000, 1250, 750, 1350, 900, 1200, 1500],
-
 function activeTimeLine() {
   const active = document.getElementsByClassName("active");
   for (let i = 0; i < active.length; i++) {
