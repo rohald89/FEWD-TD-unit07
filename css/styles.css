@@ -129,9 +129,23 @@ h3 {
   border-top: 1px solid #127681;
 }
 
-.chart-container {
-  margin: 25px;
+.chart-container-full,
+.chart-container-half {
+  /* margin: 25px; */
+  position: relative;
+  max-width: 99%;
+  margin: 20px auto;
 }
+
+/* .chart-container-full {
+  width: 90vw;
+  height: 40vh;
+} */
+/* 
+.chart-container-half {
+  width: 42vw;
+  height: 30vh;
+} */
 
 .traffic-header ul {
   display: flex;
@@ -255,12 +269,6 @@ form {
 .suggestions div:hover {
   background-color: #e5e9f8;
 }
-
-/* 
-==============================
-==== Autocomplete Search =====
-============================== 
-*/
 
 form {
   display: flex;

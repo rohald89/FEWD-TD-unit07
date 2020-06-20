@@ -86,7 +86,7 @@ let trafficData = new Chart(trafficCanvas, {
     ],
   },
   options: {
-    aspectRatio: 2.8,
+    responsive: true,
     legend: false,
     scales: {
       yAxes: [
@@ -241,7 +241,7 @@ let dailyChart = new Chart(dailyCanvas, {
     ],
   },
   options: {
-    aspectRatio: 1.9,
+    responsive: true,
     legend: false,
     scales: {
       yAxes: [
@@ -277,6 +277,7 @@ let mobileChart = new Chart(mobileCanvas, {
     ],
   },
   options: {
+    responsive: true,
     title: {
       fontSize: 24,
     },
@@ -307,7 +308,11 @@ const submitted = document.createElement("P");
 messageForm.addEventListener("submit", (event) => {
   event.preventDefault();
   messageForm.onsubmit = () => {
-    if (userSearch.value === "" && messageForUser.value !== "") {
+    if (userSearch.value === "" && messageForUser.value === "") {
+      submitted.textContent =
+        "Please enter a username and message before submitting.";
+      messageForm.insertBefore(submitted, messageButton);
+    } else if (userSearch.value === "" && messageForUser.value !== "") {
       submitted.textContent =
         "It looks like the name of the person you want to send a message is missing, please fill in a user name and try again";
       messageForm.insertBefore(submitted, messageButton);
