@@ -49,6 +49,10 @@ header h1 {
   animation: swing 1.5s ease-out;
 }
 
+.user-name {
+  display: none;
+}
+
 #notification {
   height: 8px;
   width: 8px;
@@ -116,6 +120,7 @@ main {
 }
 .main-header {
   display: flex;
+  flex-wrap: wrap;
   margin: 15px;
   justify-content: space-between;
   align-items: center;
@@ -149,6 +154,7 @@ h3 {
 
 .traffic-header ul {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   margin-right: 30px;
 }
@@ -288,7 +294,7 @@ form .buttons {
 .profile-to-public {
   display: flex;
   align-items: center;
-  width: 70%;
+  width: 100%;
 }
 
 .email-notifications p,
@@ -305,6 +311,7 @@ form .buttons {
 }
 
 .secondary-btn {
+  background-color: #f3c623;
   margin-left: 20px;
   flex-grow: 1;
   padding: 10px;
@@ -389,6 +396,9 @@ input:checked + .slider:before {
 @media (min-width: 768px) {
   .wrapper {
     grid-template-rows: 80px 65px 1fr;
+  }
+  .user-name {
+    display: flex;
   }
   .socials {
     display: flex;
