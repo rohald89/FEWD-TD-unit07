@@ -340,7 +340,7 @@ const members = [
 const suggestionsDiv = document.querySelector(".suggestions");
 
 userSearch.addEventListener("keyup", () => {
-  let input = userSearch.value;
+  let input = userSearch.value.toLowerCase();
   const suggestion = document.getElementsByClassName("suggestion");
   suggestionsDiv.innerHTML = "";
 
