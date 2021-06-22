@@ -96,6 +96,15 @@ let trafficData = new Chart(trafficCanvas, {
           },
         },
       ],
+      xAxes: [
+        {
+          gridLines: {
+            offsetGridLines: true,
+            // labelOffset: 100,
+            mode: 'nearest',
+          },
+        }
+      ],
     },
   },
 });
@@ -104,7 +113,7 @@ let trafficData = new Chart(trafficCanvas, {
 //== Traffic Chart Switch ==
 //==========================
 
-function activeTimeLine() {
+const activeTimeLine = () => {
   const active = document.getElementsByClassName("active");
   for (let i = 0; i < active.length; i++) {
     active[i].classList = "";
